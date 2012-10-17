@@ -1,0 +1,14 @@
+<h1>Gists for <%= link_to @person, "https://gist.github.com/"+@person %></h1>
+
+<% if @gists.empty? %>
+<p>
+  <%= @person %> doesn't have any public gists.
+  If you are <%= @person %>, <a href="https://gist.github.com/">create a gist here.</a>
+</p>
+<% end %>
+
+<ul>
+<% @gists.each do |gist| %>
+  <li><%= link_to name_of(gist), gist.html_url %></li>
+<% end %>
+</ul>
